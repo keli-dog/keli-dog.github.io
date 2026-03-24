@@ -40,21 +40,32 @@ npx hexo s
 # 访问 http://localhost:4000
 ```
 
-### 3. 同步到正式环境 (Deploy)
-由于本项目采用了优化后的纯静态方案，建议按以下步骤同步：
-```bash
-# 1. 在 hexo-source 分支提交源码
-git add .
-git commit -m "Update content"
-git push origin hexo-source
+### 3. 同步到正式环境 (一键部署命令)
+为了确保部署过程不丢失文件，请直接在 PowerShell 中复制并运行以下**整段逻辑**：
 
-# 2. 生成并同步到 master
-npx hexo clean && npx hexo generate
+```powershell
+# 1. 确保在源码分支并生成最新网页
+git checkout hexo-source; npx hexo clean; npx hexo generate
+
+# 2. 将生成好的网页暂时存放到系统临时文件夹
+Copy-Item -Path "public" -Destination "$env:TEMP\hexo_deploy_tmp" -Recurse -Force
+
+# 3. 切换到部署分支并清空旧内容 (保留 .git 记录)
 git checkout master
-# (建议手动将 public 文件夹内容覆盖到根目录，然后提交)
-git add .
-git commit -m "Site Update"
+Get-ChildItem -Exclude .git | Remove-Item -Recurse -Force
+
+# 4. 从临时文件夹拷回成品并添加上线标记
+Copy-Item -Path "$env:TEMP\hexo_deploy_tmp\*" -Destination "." -Recurse -Force
+New-Item -ItemType File -Name ".nojekyll" -Force
+
+# 5. 提交并强制推送到 GitHub
+git add -A
+git commit -m "Site Update: $(Get-Date -Format 'yyyy-MM-dd HH:mm')"
 git push origin master -f
+
+# 6. 清理临时工并切回源码分支
+Remove-Item -Path "$env:TEMP\hexo_deploy_tmp" -Recurse -Force
+git checkout hexo-source
 ```
 
 ## 🛡️ 注意事项
