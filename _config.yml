@@ -1,0 +1,69 @@
+# Hexo Configuration
+# Site
+title: keli-dog 的博客
+subtitle: ''
+description: '一只在代码海洋里畅游的程序狗 | 热爱技术，喜欢折腾'
+keywords:
+author: keli-dog
+language: zh-CN
+timezone: Asia/Shanghai
+
+# URL
+url: https://keli-dog.github.io
+root: /
+permalink: :year/:month/:day/:title/
+permalink_defaults:
+pretty_urls:
+  trailing_index: true
+  trailing_html: true
+
+# Directory
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: :lang
+skip_render:
+  - "tech-articles/**"
+  - "projects/**"
+  - "resume/**"
+  - "playtime/**"
+  - "CTFStudy/**"
+  - "quiz/**"
+  - "img/**"
+  - "index.html"
+
+# Writing
+new_post_name: :title.md
+default_layout: post
+titlecase: false
+external_link:
+  enable: true
+  field: site
+  exclude: ''
+filename_case: 0
+render_drafts: false
+post_asset_folder: false
+relative_link: false
+future: true
+syntax_highlighter: highlight.js
+highlight:
+  line_number: true
+  auto_detect: false
+  tab_replace: ''
+  wrap: true
+  hljs: false
+prismjs:
+  line_number: true
+  preprocess: true
+
+# Extensions
+theme: next
+
+# Deployment
+deploy:
+  type: git
+  repo: https://github.com/keli-dog/keli-dog.github.io.git
+  branch: master
