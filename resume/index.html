@@ -1,98 +1,144 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
+
 <head>
-  <meta charset="utf-8">
-  <title>个人简历 - keli-dog 的博客</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:title" content="个人简历">
-  <meta property="og:url" content="http://example.com/resume/index.html">
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人简历 - keli-dog 的空间</title>
+    <style>
+        body {
+            background: #f4f7f6;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: #333;
+        }
+
+        .top-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+            color: #333;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .resume-section {
+            margin-bottom: 40px;
+        }
+
+        .resume-section h2 {
+            border-bottom: 2px solid #43e97b;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 15px;
+            line-height: 1.6;
+        }
+
+        .label {
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .skill-tag {
+            background: #f0fdf4;
+            color: #166534;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            border: 1px solid #bbf7d0;
+        }
+
+        .back-home {
+            display: inline-block;
+            margin-top: 40px;
+            padding: 10px 25px;
+            background: #2c3e50;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 25px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: #999;
+        }
+    </style>
 </head>
+
 <body>
-  <div class="left-col">
-    <div class="overlay"></div>
-    <div class="intrude-less">
-      <header id="header" class="inner">
-        <a href="/" class="profilepic">
-          <img lazy-src="img/keli-dog.jpg" class="js-avatar">
-        </a>
-        <hgroup>
-          <h1 class="header-author"><a href="/">keli-dog</a></h1>
-        </hgroup>
-        <div id="switch-area">
-          <div class="switch-wrap">
-            <section class="switch-part switch-part4">
-              <div id="js-aboutme">一只在代码海洋里畅游的程序狗 | 热爱技术，喜欢折腾</div>
-            </section>
-          </div>
+    <header class="top-header">
+        <a href="/" class="logo"><span>📄</span> keli-dog</a>
+    </header>
+
+    <div class="container">
+        <div class="resume-section">
+            <h2>👨‍💻 个人简介</h2>
+            <div class="info-grid">
+                <div class="label">简介：</div>
+                <div>一只在代码海洋里畅游的程序狗 | 热爱技术，喜欢折腾</div>
+                <div class="label">坐标：</div>
+                <div>中国</div>
+                <div class="label">邮箱：</div>
+                <div>2695917656@qq.com</div>
+                <div class="label">GitHub：</div>
+                <div><a href="https://github.com/keli-dog" target="_blank">keli-dog</a></div>
+            </div>
         </div>
-      </header>
+
+        <div class="resume-section">
+            <h2>🛠️ 技术栈</h2>
+            <div class="skill-tags">
+                <span class="skill-tag">Java</span><span class="skill-tag">Python</span><span
+                    class="skill-tag">Node.js</span>
+                <span class="skill-tag">Vue</span><span class="skill-tag">Web Security</span><span
+                    class="skill-tag">CTF</span>
+                <span class="skill-tag">Docker</span><span class="skill-tag">Git</span><span
+                    class="skill-tag">Linux</span>
+            </div>
+        </div>
+
+        <div class="resume-section">
+            <h2>📂 开源项目</h2>
+            <p>主要涵盖 Java Web 应用、算法实现和学习笔记。详见我的项目页面。</p>
+        </div>
+
+        <div style="text-align: center;">
+            <a href="/" class="back-home">返回主页</a>
+        </div>
     </div>
-  </div>
-  <div class="mid-col">
-    <div class="body-wrap">
-      <h2 style="text-align:center;margin:40px 0;">📄 个人简历</h2>
 
-      <article class="article article-type-post" itemscope itemprop="blogPost">
-        <div class="article-inner">
-          <header class="article-header">
-            <h1 itemprop="name"><a class="article-title" href="#">👨‍💻 个人简介</a></h1>
-          </header>
-          <div class="article-entry" itemprop="articleBody">
-            <p>一只在代码海洋里畅游的程序狗 | 热爱技术，喜欢折腾</p>
-            <p><strong>坐标：</strong> 中国</p>
-            <p><strong>邮箱：</strong> 2695917656@qq.com</p>
-            <p><strong>GitHub：</strong> <a href="https://github.com/keli-dog" target="_blank">https://github.com/keli-dog</a></p>
-          </div>
-        </div>
-      </article>
-
-      <article class="article article-type-post" itemscope itemprop="blogPost">
-        <div class="article-inner">
-          <header class="article-header">
-            <h1 itemprop="name"><a class="article-title" href="#">🛠️ 技术栈</a></h1>
-          </header>
-          <div class="article-entry" itemprop="articleBody">
-            <p><strong>后端：</strong> Java, Python, Node.js</p>
-            <p><strong>前端：</strong> HTML, CSS, JavaScript, Vue</p>
-            <p><strong>安全：</strong> Web 安全, CTF</p>
-            <p><strong>工具：</strong> Git, Docker, Linux</p>
-          </div>
-        </div>
-      </article>
-
-      <article class="article article-type-post" itemscope itemprop="blogPost">
-        <div class="article-inner">
-          <header class="article-header">
-            <h1 itemprop="name"><a class="article-title" href="#">📂 开源项目</a></h1>
-          </header>
-          <div class="article-entry" itemprop="articleBody">
-            <p>在 GitHub 上有多个开源项目，主要涵盖：</p>
-            <ul>
-              <li>Java Web 应用</li>
-              <li>算法实现</li>
-              <li>学习笔记</li>
-            </ul>
-            <p>详见：<a href="/projects/" target="_blank">我的项目</a></p>
-          </div>
-        </div>
-      </article>
-
-      <article class="article article-type-post" itemscope itemprop="blogPost">
-        <div class="article-inner">
-          <header class="article-header">
-            <h1 itemprop="name"><a class="article-title" href="#">📝 联系方式</a></h1>
-          </header>
-          <div class="article-entry" itemprop="articleBody">
-            <p><strong>📧 邮箱：</strong> 2695917656@qq.com</p>
-            <p><strong>🐙 GitHub：</strong> <a href="https://github.com/keli-dog" target="_blank">keli-dog</a></p>
-            <p><strong>📱 知乎：</strong> <a href="https://www.zhihu.com/people/Swings" target="_blank">Swings</a></p>
-          </div>
-        </div>
-      </article>
-
-    </div>
-  </div>
+    <footer>© 2026 keli-dog. All rights reserved.</footer>
 </body>
+
 </html>

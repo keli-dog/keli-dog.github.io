@@ -1,103 +1,189 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
+
 <head>
-  <meta charset="utf-8">
-  <title>学习导航 - keli-dog 的博客</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:title" content="学习导航">
-  <meta property="og:url" content="http://example.com/CTFStudy/index.html">
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学习导航 - keli-dog 的空间</title>
+    <style>
+        body {
+            background: #f4f7f6;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: #333;
+        }
+
+        .top-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            color: #333;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: #333;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .page-title h1 {
+            font-size: 32px;
+            color: #2c3e50;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .page-title h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: #a8edea;
+            border-radius: 2px;
+        }
+
+        .article-list {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .article-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+            border-left: 5px solid #a8edea;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .article-card h2 {
+            margin: 0 0 15px;
+            font-size: 24px;
+            color: #2c3e50;
+        }
+
+        .article-entry p {
+            line-height: 1.6;
+            color: #666;
+        }
+
+        .resource-list {
+            margin-top: 15px;
+            padding-left: 20px;
+            color: #555;
+        }
+
+        .back-home {
+            display: inline-block;
+            margin-top: 40px;
+            padding: 10px 25px;
+            background: #2c3e50;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: background 0.3s;
+        }
+
+        .back-home:hover {
+            background: #34495e;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #999;
+            font-size: 14px;
+        }
+    </style>
 </head>
+
 <body>
-  <div class="left-col">
-    <div class="overlay"></div>
-    <div class="intrude-less">
-      <header id="header" class="inner">
-        <a href="/" class="profilepic">
-          <img lazy-src="img/keli-dog.jpg" class="js-avatar">
-        </a>
-        <hgroup>
-          <h1 class="header-author"><a href="/">keli-dog</a></h1>
-        </hgroup>
-        <div id="switch-area">
-          <div class="switch-wrap">
-            <section class="switch-part switch-part4">
-              <div id="js-aboutme">一只在代码海洋里畅游的程序狗 | 热爱技术，喜欢折腾</div>
-            </section>
-          </div>
+    <header class="top-header">
+        <a href="/" class="logo"><span>🏆</span> keli-dog</a>
+        <div class="user-info">学习导航</div>
+    </header>
+
+    <div class="container">
+        <div class="page-title">
+            <h1>📚 学习导航</h1>
         </div>
-      </header>
+
+        <div class="article-list">
+            <div class="article-card">
+                <h2>🖥️ Web 安全学习路线</h2>
+                <div class="article-entry">
+                    <p>从入门到进阶的 Web 安全学习指南</p>
+                    <p><strong>推荐资源：</strong></p>
+                    <ul class="resource-list">
+                        <li>OWASP Top 10</li>
+                        <li>WebGoat 靶场</li>
+                        <li>Burp Suite 使用教程</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="article-card">
+                <h2>🔐 CTF 入门指南</h2>
+                <div class="article-entry">
+                    <p>CTF（Capture The Flag）入门学习路径</p>
+                    <p><strong>主要方向：</strong></p>
+                    <ul class="resource-list">
+                        <li>Web 安全</li>
+                        <li>二进制安全 (Pwn)</li>
+                        <li>密码学</li>
+                        <li>逆向工程</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="article-card">
+                <h2>🐍 Python 安全工具开发</h2>
+                <div class="article-entry">
+                    <p>使用 Python 开发安全工具</p>
+                    <p><strong>学习内容：</strong></p>
+                    <ul class="resource-list">
+                        <li>网络编程 (Socket, Scapy)</li>
+                        <li>爬虫技术</li>
+                        <li>自动化渗透脚本</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center;">
+            <a href="/" class="back-home">返回主页</a>
+        </div>
     </div>
-  </div>
-  <div class="mid-col">
-    <div class="body-wrap">
-      <h2 style="text-align:center;margin:40px 0;">📚 学习导航</h2>
 
-      <article class="article article-type-post" itemscope itemprop="blogPost">
-        <div class="article-meta">
-          <a class="article-date"><time datetime="2026-01-01" itemprop="datePublished">2026-01-01</time></a>
-        </div>
-        <div class="article-inner">
-          <header class="article-header">
-            <h1 itemprop="name"><a class="article-title" href="#">🖥️ Web 安全学习路线</a></h1>
-          </header>
-          <div class="article-entry" itemprop="articleBody">
-            <p>从入门到进阶的 Web 安全学习指南</p>
-            <p><strong>推荐资源：</strong></p>
-            <ul>
-              <li>OWASP Top 10</li>
-              <li>WebGoat 靶场</li>
-              <li>Burp Suite 使用教程</li>
-            </ul>
-          </div>
-        </div>
-      </article>
-
-      <article class="article article-type-post" itemscope itemprop="blogPost">
-        <div class="article-meta">
-          <a class="article-date"><time datetime="2026-01-01" itemprop="datePublished">2026-01-01</time></a>
-        </div>
-        <div class="article-inner">
-          <header class="article-header">
-            <h1 itemprop="name"><a class="article-title" href="#">🔐 CTF 入门指南</a></h1>
-          </header>
-          <div class="article-entry" itemprop="articleBody">
-            <p>CTF（Capture The Flag）入门学习路径</p>
-            <p><strong>主要方向：</strong></p>
-            <ul>
-              <li>Web 安全</li>
-              <li>二进制安全 (Pwn)</li>
-              <li>密码学</li>
-              <li>逆向工程</li>
-              <li>取证分析</li>
-            </ul>
-          </div>
-        </div>
-      </article>
-
-      <article class="article article-type-post" itemscope itemprop="blogPost">
-        <div class="article-meta">
-          <a class="article-date"><time datetime="2026-01-01" itemprop="datePublished">2026-01-01</time></a>
-        </div>
-        <div class="article-inner">
-          <header class="article-header">
-            <h1 itemprop="name"><a class="article-title" href="#">🐍 Python 安全工具开发</a></h1>
-          </header>
-          <div class="article-entry" itemprop="articleBody">
-            <p>使用 Python 开发安全工具</p>
-            <p><strong>学习内容：</strong></p>
-            <ul>
-              <li>网络编程 (Socket, Scapy)</li>
-              <li>爬虫技术</li>
-              <li>自动化渗透脚本</li>
-              <li>漏洞利用 (POC/EXP)</li>
-            </ul>
-          </div>
-        </div>
-      </article>
-
-    </div>
-  </div>
+    <footer>© 2026 keli-dog. All rights reserved.</footer>
 </body>
+
 </html>
