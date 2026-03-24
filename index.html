@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>keli-dog 的空间</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .top-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .user-controls {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid #fff;
+            cursor: pointer;
+            transition: transform 0.2s;
+            object-fit: cover;
+            background: #fff;
+        }
+
+        .user-avatar:hover {
+            transform: scale(1.1);
+        }
+
+        .user-name {
+            color: #fff;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .logout-btn {
+            padding: 8px 18px;
+            background: rgba(231, 76, 60, 0.8);
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .logout-btn:hover {
+            background: rgba(231, 76, 60, 1);
+            transform: translateY(-2px);
+        }
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .dashboard-container {
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .welcome-section {
+            text-align: center;
+            margin-bottom: 50px;
+            color: #fff;
+        }
+
+        .welcome-section h1 {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .welcome-section p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 35px 30px;
+            text-align: center;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            display: block;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 20px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: #fff;
+        }
+
+        .card-icon.technology {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .card-icon.quiz {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+
+        .card-icon.project {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .card-icon.resume {
+            background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+        }
+
+        .card-icon.playtime {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+
+        .card-icon.ctf {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+        }
+
+        .card h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .card p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .site-footer {
+            text-align: center;
+            padding: 20px;
+            color: #fff;
+            font-size: 14px;
+            opacity: 0.8;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top-header">
+        <a href="/" class="logo">
+            <span>🧢</span> keli-dog
+        </a>
+        <div class="user-controls">
+            <div class="user-name">keli-dog</div>
+            <img src="/img/keli-dog.jpg" alt="用户头像" class="user-avatar">
+            <button class="logout-btn" onclick="logout()">退出</button>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="dashboard-container">
+            <div class="welcome-section">
+                <h1>欢迎来到 keli-dog 的空间 👋</h1>
+                <p>探索技术，记录成长，分享经验</p>
+            </div>
+
+            <div class="cards-container">
+                <a href="/tech-articles/" class="card">
+                    <div class="card-icon technology">💻</div>
+                    <h3>技术文章</h3>
+                    <p>我的技术博客和学习笔记</p>
+                </a>
+
+                <a href="/quiz/" class="card">
+                    <div class="card-icon quiz">📝</div>
+                    <h3>题库</h3>
+                    <p>编程题目和练习</p>
+                </a>
+
+                <a href="/projects/" class="card">
+                    <div class="card-icon project">🚀</div>
+                    <h3>项目</h3>
+                    <p>我的个人项目和作品</p>
+                </a>
+
+                <a href="/resume/" class="card">
+                    <div class="card-icon resume">📄</div>
+                    <h3>简历</h3>
+                    <p>查看我的简历和经历</p>
+                </a>
+
+                <a href="/playtime/" class="card">
+                    <div class="card-icon playtime">🎮</div>
+                    <h3>娱乐</h3>
+                    <p>休闲时光，放松心情</p>
+                </a>
+
+                <a href="/CTFStudy/" class="card">
+                    <div class="card-icon ctf">🏆</div>
+                    <h3>CTF学习</h3>
+                    <p>网络安全学习记录</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        © 2026 keli-dog. All rights reserved.
+    </footer>
+
+    <script>
+        function logout() {
+            if (confirm('确定要退出吗？')) {
+                alert('已退出登录');
+            }
+        }
+    </script>
+</body>
+
+</html>
