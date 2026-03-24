@@ -27,6 +27,13 @@ category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
+  - "CTFStudy/**"
+  - "projects/**"
+  - "resume/**"
+  - "playtime/**"
+  - "tech-articles/**"
+  - "quiz/**"
+  - "index.html"
 
 # Writing
 new_post_name: :title.md
@@ -79,7 +86,7 @@ exclude:
 ignore:
 
 # Extensions
-theme: hexo-theme-next
+theme: next
 
 # Deployment
 deploy:
