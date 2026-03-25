@@ -28,17 +28,23 @@ git push origin hexo-source
 # 1. 生成网页预览并暂存到临时目录
 npx hexo clean; npx hexo generate; Copy-Item -Path "public" -Destination "$env:TEMP\hexo_deploy_tmp" -Recurse -Force
 
-# 2. 切换到部署分支并清空旧版本 (保留 .git)
-git checkout master; Get-ChildItem -Exclude .git | Remove-Item -Recurse -Force
+# 2. 切换到部署分支（务必确保切换成功后再继续！）
+git checkout master
 
-# 3. 从临时文件夹拷回并补全 .nojekyll 
-Copy-Item -Path "$env:TEMP\hexo_deploy_tmp\*" -Destination "." -Recurse -Force; New-Item -ItemType File -Name ".nojekyll" -Force
+# 3. 如果成功切换到 master，则清空旧版本并拷入新版本
+if ($LASTEXITCODE -eq 0) {
+    Get-ChildItem -Exclude .git | Remove-Item -Recurse -Force
+    Copy-Item -Path "$env:TEMP\hexo_deploy_tmp\*" -Destination "." -Recurse -Force
+    New-Item -ItemType File -Name ".nojekyll" -Force
 
-# 4. 提交并强制推送上线 (带时间戳)
-git add -A; git commit -m "全站同步更新: $(Get-Date -Format 'yyyy-MM-dd HH:mm')"; git push origin master -f
+    git add -A; git commit -m "全站同步更新: $(Get-Date -Format 'yyyy-MM-dd HH:mm')"; git push origin master -f
+} else {
+    Write-Host "切换 master 分支失败，已终止部署以免误删源码！" -ForegroundColor Red
+}
 
-# 5. 清理并切回源码分支
-Remove-Item -Path "$env:TEMP\hexo_deploy_tmp" -Recurse -Force; git checkout hexo-source
+# 4. 清理临时目录并切回源码分支
+Remove-Item -Path "$env:TEMP\hexo_deploy_tmp" -Recurse -Force
+git checkout hexo-source
 ```
 
 ---
